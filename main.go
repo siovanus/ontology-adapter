@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Starting Substrate adapter")
+	fmt.Println("Starting Ontology adapter")
 
 	contractAddress := os.Getenv("ORACLE_CONTRACT_ADDRESS")
 	walletPath := os.Getenv("ONTOLOGY_WALLET_PATH")
