@@ -12,9 +12,10 @@ type handler func(req Request) (interface{}, error)
 
 func RunWebserver(
 	handler handler,
+	listening string,
 ) {
 	srv := NewHTTPService(handler)
-	err := srv.Router.Run()
+	err := srv.Router.Run(listening)
 	if err != nil {
 		fmt.Println(err)
 	}

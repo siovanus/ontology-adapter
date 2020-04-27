@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/hex"
+	"fmt"
 	sdk "github.com/ontio/ontology-go-sdk"
 	"github.com/ontio/ontology/common"
 	"github.com/ontio/ontology/common/password"

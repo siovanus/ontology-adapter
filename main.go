@@ -2,21 +2,23 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"github.com/smartcontractkit/ontology-adapter/config"
 )
 
 func main() {
 	fmt.Println("Starting Ontology adapter")
-
-	contractAddress := os.Getenv("ORACLE_CONTRACT_ADDRESS")
-	walletPath := os.Getenv("ONTOLOGY_WALLET_PATH")
-	endpoint := os.Getenv("ONTOLOGY_RPC")
-
-	adapter, err := newOntologyAdapter(walletPath, contractAddress, endpoint)
+	err := config.DefConfig.Init(config.DEFAULT_CONFIG_FILE_NAME)
 	if err != nil {
-		fmt.Println("Failed starting Substrate adapter:", err)
+		fmt.Println("DefConfig.Init error:", err)
 		return
 	}
 
-	RunWebserver(adapter.handle)
+	adapter, err := newOntologyAdapter(config.DefConfig.OntologyWalletPath,
+		config.DefConfig.OracleContractAddress, config.DefConfig.OntologyRpc)
+	if err != nil {
+		fmt.Println("Failed starting Ontology adapter:", err)
+		return
+	}
+
+	RunWebserver(adapter.handle, config.DefConfig.Listening)
 }
