@@ -1,6 +1,6 @@
 {
-  "OracleContractAddress":"b54dd842fadc8b04f0c58b1ea921f49bf54d04f0",
-  "OntologyWalletPath":"wallet.dat",
-  "OntologyRpc": "http://polaris1.ont.io",
+  "OracleContractAddress": "b54dd842fadc8b04f0c58b1ea921f49bf54d04f0",
+  "OntologyWalletPath": "wallet.dat",
+  "OntologyRpc": "http://polaris1.ont.io:20336",
   "Listening": "0.0.0.0:8090"
 }
